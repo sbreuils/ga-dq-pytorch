@@ -61,7 +61,7 @@ class DualQuaternion:
         
         trans_size = list(translation.shape)
         trans_size[-1] = 4
-        qtrans = torch.zeros(trans_size)
+        qtrans = torch.zeros(trans_size,dtype=translation.dtype)
         qtrans[:,1:]=translation
 
         qd = 0.5 * Quaternion(qtrans) * qr
